@@ -1,0 +1,618 @@
+{
+	"info": {
+		"_postman_id": "ada40664-c160-477c-a86c-200fb3cd8029",
+		"name": "LendingPad-SampleProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46861090",
+		"_collection_link": "https://velmurugan-703145.postman.co/workspace/Velmurugan's-Workspace~525ffaf7-6bba-42e8-87b2-f46f32cb5b2e/collection/46861090-ada40664-c160-477c-a86c-200fb3cd8029?action=share&source=collection_link&creator=46861090"
+	},
+	"item": [
+		{
+			"name": "Initialize Sample Data",
+			"item": [
+				{
+					"name": "Clear Users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:49834/users/clear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"clear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - John",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Smith\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 2,\r\n    \"age\": 27,\r\n    \"annualSalary\": 72000,\r\n    \"tags\": [\"A\", \"C\", \"D\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/1422740e-6426-4c46-8445-3f5274a62424/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"1422740e-6426-4c46-8445-3f5274a62424",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Mark",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mark Williams\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 35,\r\n    \"annualSalary\": 120000,\r\n    \"tags\": [\"b\", \"c\", \"e\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/9422740e-6426-4c46-8445-3f5274a62424/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"9422740e-6426-4c46-8445-3f5274a62424",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User - Andy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Andy\",\r\n    \"email\": \"andy@companya.com\",\r\n    \"type\": 2,\r\n    \"age\": 34,\r\n    \"annualSalary\": 86000,\r\n    \"tags\": [\"D\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/8722740e-6426-4c46-8445-3f5274a62424/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"8722740e-6426-4c46-8445-3f5274a62424",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//The exception \"PUT attempted on document 'users/1422740e-6426-4c46-8445-3f5274a62424' using a non current etag\" means that the record with the same ID already exists.\r\n{\r\n    \"name\": \"Mary\",\r\n    \"email\": \"mary@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 29,\r\n    \"annualSalary\": 80000,\r\n    \"tags\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/1422740e-6426-4c46-8445-3f5274a62424/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"1422740e-6426-4c46-8445-3f5274a62424",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mark Williams (updated)\",\r\n    \"email\": null,\r\n    \"type\": 2,\r\n    \"age\": 29,\r\n    \"annualSalary\": 80000,\r\n    \"tags\": [\"A\", \"C\", \"D\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/8e8714d3-acde-4066-9135-9c45c4228744/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"8e8714d3-acde-4066-9135-9c45c4228744",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mark Williams\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 29,\r\n    \"annualSalary\": null,\r\n    \"tags\": [\"A\", \"C\", \"D\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/8e8714d3-acde-4066-9135-9c45c4228744/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"8e8714d3-acde-4066-9135-9c45c4228744",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mark Williams\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 29,\r\n    \"annualSalary\": 152000,\r\n    \"tags\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/8e8714d3-acde-4066-9135-9c45c4228744/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"8e8714d3-acde-4066-9135-9c45c4228744",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users By Tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49834/users/list/tag?tag=C",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49834",
+							"path": [
+								"users",
+								"list",
+								"tag"
+							],
+							"query": [
+								{
+									"key": "tag",
+									"value": "C"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requests",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Id\" :124,\r\n    \"Name\": \"Aspire\",\r\n    \"Description\": \"Ford Figo Aspire\",\r\n    \"Price\": 50000,\r\n    \"Model\": \"Basic\",\r\n    \"Color\": \"White\",\r\n    \"Category\": \"Hatchback\",\r\n\t\"Imageurl\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:49834/Product/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Product",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Id\" :120,\r\n    \"Name\": \"Elantra\",\r\n    \"Description\": \"Hyundai Elantra- New Model\",\r\n    \"Price\": 1000,\r\n    \"Model\": \"Basic\",\r\n    \"Color\": \"Black\",\r\n    \"Category\": \"SUV\",\r\n\t\"Imageurl\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:49834/Product/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Product",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/Product/Delete/120",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Product",
+										"Delete",
+										"120"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/Product/Get?productID=120",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Product",
+										"Get"
+									],
+									"query": [
+										{
+											"key": "productID",
+											"value": "120"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:49834/Product/GetAll?skip=0&take=5&color=white&category=SUV",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Product",
+										"GetAll"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "0"
+										},
+										{
+											"key": "take",
+											"value": "5"
+										},
+										{
+											"key": "color",
+											"value": "white"
+										},
+										{
+											"key": "category",
+											"value": "SUV"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "Create Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Id\" :200,\r\n    \"OrderDate\": \"22/07/2025\",\r\n    \"OrderTotal\": 1500,\r\n    \"Status\": \"Pending Delivery\",\r\n    \"CustomerID\": 150,\r\n    \"ProductID\": 122\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:49834/Orders/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Orders",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Id\" :120,\r\n    \"OrderDate\": \"04/03/2025\",\r\n    \"OrderTotal\": 1500,\r\n    \"Status\": \"Delivered\",\r\n    \"CustomerID\": 134,\r\n    \"ProductID\": 78\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:49834/Orders/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Orders",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Order",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/Orders/Delete/120",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Orders",
+										"Delete",
+										"120"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/Orders/GetOrderByID/120",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Orders",
+										"GetOrderByID",
+										"120"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllOrder",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/Orders/GetOrders?skip=0&take=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Orders",
+										"GetOrders"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "0"
+										},
+										{
+											"key": "take",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll with search params",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/Orders/GetOrders?skip=0&take=5&Status=Pending Delivery",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"Orders",
+										"GetOrders"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "0"
+										},
+										{
+											"key": "take",
+											"value": "5"
+										},
+										{
+											"key": "Status",
+											"value": "Pending Delivery"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
