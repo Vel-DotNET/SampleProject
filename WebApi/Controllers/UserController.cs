@@ -45,7 +45,6 @@ namespace WebApi.Controllers
                     var user = _createUserService.Create(userId, model.Name, model.Email, model.Type, model.AnnualSalary, model.Tags);
                     _response.Result = user;
                     _response.StatusCode = HttpStatusCode.OK;
-                    //return Found(new UserData(user));
                 }
 
             }
@@ -69,14 +68,12 @@ namespace WebApi.Controllers
                 {
                     _response.Message = "User does not exist in the system";
                     _response.StatusCode = HttpStatusCode.NotFound;
-                    //return DoesNotExist();
                 }
                 else
                 {
                     _updateUserService.Update(user, model.Name, model.Email, model.Type, model.AnnualSalary, model.Tags);
                     _response.Result = user;
                     _response.StatusCode = HttpStatusCode.OK;
-                    //return Found(new UserData(user));
                 }
 
             }
@@ -100,13 +97,11 @@ namespace WebApi.Controllers
                 {
                     _response.Message = "User does not exist in the system";
                     _response.StatusCode = HttpStatusCode.NotFound;
-                    //return DoesNotExist();
                 }
                 else
                 {
                     _deleteUserService.Delete(user);
                     _response.Message = "User deleted from the system";
-                    //return Found(new UserData(user));
                 }
             }
             catch (Exception ex)
@@ -128,7 +123,6 @@ namespace WebApi.Controllers
                 var user = _getUserService.GetUser(userId);
                 _response.Result = user;
                 _response.StatusCode = HttpStatusCode.OK;
-                //return Found(new UserData(user));
             }
             catch (Exception ex)
             {
@@ -149,7 +143,6 @@ namespace WebApi.Controllers
                                            .Skip(skip).Take(take)
                                            .Select(q => new UserData(q))
                                            .ToList();
-                //return Found(users);
                 _response.Result = users;
                 _response.StatusCode = HttpStatusCode.OK;
             }
@@ -172,7 +165,6 @@ namespace WebApi.Controllers
                 _deleteUserService.DeleteAll();
                 _response.StatusCode = HttpStatusCode.OK;
                 _response.Message = "All Users are Deleted";
-                //return Found();
             }
             catch (Exception ex)
             {

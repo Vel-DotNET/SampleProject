@@ -49,14 +49,12 @@ namespace WebApi.Controllers
                 {
                     _response.Message = "Product does not exist in the system";
                     _response.StatusCode = HttpStatusCode.NotFound;
-                    //return DoesNotExist();
                 }
                 else
                 {
                     _productService.Update(model);
                     _response.Result = product;
                     _response.StatusCode = HttpStatusCode.OK;
-                    //return Found(new UserData(user));
                 }
 
             }
@@ -70,7 +68,6 @@ namespace WebApi.Controllers
         }
 
         [Route("Delete/{prouctID:int}")]
-        //[Route("delete/{userId:guid}")]
         [HttpDelete]
         public APIResponse Delete(int prouctID)
         {
@@ -81,13 +78,11 @@ namespace WebApi.Controllers
                 {
                     _response.Message = "Product does not exist in the system";
                     _response.StatusCode = HttpStatusCode.NotFound;
-                    //return DoesNotExist();
                 }
                 else
                 {
                     _productService.Delete(prouctID);
                     _response.Message = "Product deleted from the system";
-                    //return Found(new UserData(user));
                 }
             }
             catch (Exception ex)
@@ -109,7 +104,6 @@ namespace WebApi.Controllers
                 var product = _productService.GetProductByID(productID);
                 _response.Result = product;
                 _response.StatusCode = HttpStatusCode.OK;
-                //return Found(new UserData(user));
             }
             catch (Exception ex)
             {
@@ -128,7 +122,6 @@ namespace WebApi.Controllers
             {
                 var product = _productService.GetProducts()
                                            .Skip(skip).Take(take)
-                                           //.Select(q => new prod(q))
                                            .ToList();
                 _response.Result = product;
                 _response.StatusCode = HttpStatusCode.OK;
