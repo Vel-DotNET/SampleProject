@@ -23,6 +23,15 @@ namespace Data.Repositories
                 CustomerID = 134,
                 ProductID = 78,
             });
+            _lstOrder.Add(new Order
+            {
+                Id = 156,
+                OrderDate = "15/07/2025",
+                OrderTotal = 690,
+                Status = "Pending Delivery",
+                CustomerID = 134,
+                ProductID = 54,
+            });
 
         }
 

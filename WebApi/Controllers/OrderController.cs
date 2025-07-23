@@ -115,16 +115,19 @@ namespace WebApi.Controllers
             return _response;
         }
 
-        [Route("GetOrders/{skip:int}/{take:int}")]
+        [Route("GetOrders")]
         [HttpGet]
-        public APIResponse GetAll(int skip, int take)
+        public APIResponse GetAll(int skip, int take, string Status = null)
         {
             try
             {
-                var order = _orderService.GetAllOrders()
-                                           .Skip(skip).Take(take)
-                                           .ToList();
-                _response.Result = order;
+                var lstOrder = _orderService.GetAllOrders();
+                if (lstOrder.Count() > 0 && !string.IsNullOrEmpty(Status))
+                {
+                    lstOrder = lstOrder.Where(s => s.Status.ToLower() == Status.ToLower());
+                }
+                lstOrder = lstOrder.Skip(skip).Take(take).ToList();
+                _response.Result = lstOrder;
                 _response.StatusCode = HttpStatusCode.OK;
             }
             catch (Exception ex)

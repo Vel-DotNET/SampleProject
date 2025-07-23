@@ -28,6 +28,18 @@ namespace Data.Repositories
                 Category = "Sedan",
                 Imageurl = ""
             });
+            _lstProduct.Add(new Product
+            {
+                Id = 127,
+                Name = "innova",
+                Description = "Toyota innova",
+                Price = 4500,
+                Model = "TopEnd",
+                Color = "White",
+                Category = "SUV",
+                Imageurl = ""
+            });
+
 
         }
 

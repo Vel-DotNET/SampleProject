@@ -114,15 +114,28 @@ namespace WebApi.Controllers
             return _response;
         }
 
-        [Route("GetAll/{skip:int}/{take:int}")]
+        [Route("GetAll")]
+        ///{skip:int}/{take:int}
         [HttpGet]
-        public APIResponse GetProducts(int skip, int take)
+        public APIResponse GetProducts(int skip, int take, string category = null, string color = null)
         {
             try
             {
-                var product = _productService.GetProducts()
-                                           .Skip(skip).Take(take)
-                                           .ToList();
+
+                var lstOrder = _productService.GetProducts();
+                if (lstOrder.Count() > 0)
+                {
+                    if (!string.IsNullOrEmpty(category))
+                    {
+                        lstOrder = lstOrder.Where(s => s.Category.ToLower() == category.ToLower());
+                    }
+                    if (!string.IsNullOrEmpty(color))
+                    {
+                        lstOrder = lstOrder.Where(s => s.Color.ToLower() == color.ToLower());
+                    }
+                }
+                var product = lstOrder.Skip(skip).Take(take).ToList();
+
                 _response.Result = product;
                 _response.StatusCode = HttpStatusCode.OK;
             }
