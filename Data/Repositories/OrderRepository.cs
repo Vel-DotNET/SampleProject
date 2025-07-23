@@ -14,6 +14,8 @@ namespace Data.Repositories
 
         public OrderRepository()
         {
+            //Considering  in Memory storage and aswell with the current Target version 2.0,
+            //I used simple List with two Collections in it for the purpose CRUD operations
             _lstOrder.Add(new Order
             {
                 Id = 120,
